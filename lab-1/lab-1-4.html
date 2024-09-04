@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1-4</title>
+</head>
+<body>
+    <script>
+        class NewClass {
+
+            constructor(title, url) {
+                this.title = title;
+                this.url = url;
+            }
+
+            show() {
+                document.write(`<b>Title:</b> ${this.title}<br/> <b>URL:</b> ${this.url}`);
+            }
+        }
+
+        const classItem = new NewClass('BLA', 'test.com');
+        classItem.show();
+    </script>
+    
+</body>
+</html>

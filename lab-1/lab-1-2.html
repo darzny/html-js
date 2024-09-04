@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1-2</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        overflow: hidden;
+    }
+
+    th, td {
+        border: 1px solid gainsboro;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        position: relative;
+    }
+
+    th,
+    td:first-child {
+        font-weight: bold;
+    }
+
+    td:hover,
+    th:hover {
+        cursor: pointer;
+    }
+
+    th:first-child:hover {
+        cursor: default;
+    }
+
+    th:hover:not(:first-child) {
+        background-color: yellow;
+    }
+
+    td:first-child:hover,
+    td:first-child:hover ~ td {
+        background-color: yellowgreen;
+    }
+   
+    th:first-child {
+        background-color: gainsboro;
+    }
+
+
+    th:hover:not(:first-child)::after,
+    td:hover::before,
+    td:hover:not(:first-child)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+
+    th:hover:not(:first-child)::after {
+        width: 100%;
+        height: 100vh;
+        background-color: yellow;
+    }
+
+    td:hover::before {
+        width: 100vw;
+        height: 100%;
+        background-color: skyblue;
+        transform: translateX(calc(-100% + 42px));
+    }
+
+    td:hover:not(:first-child)::after {
+        width: 100%;
+        height: 100vh;
+        background-color: skyblue;
+        transform: translateY(calc(-100% + 42px));
+    }
+    
+</style>
+<body>
+    <script>
+        const SIZE = {
+            WIDTH: 10,
+            HEIGHT: 10
+        }
+
+        const TAG = {
+            TABLE: {
+                OPEN: '<table>',
+                CLOSE: '</table>'
+            },
+            TR: {
+                OPEN: '<tr>',
+                CLOSE: '</tr>'
+            },
+            TH: {
+                OPEN: '<th>',
+                CLOSE: '</th>'
+            },
+            TD: {
+                OPEN: '<td>',
+                CLOSE: '</td>'
+            }
+        }
+
+        let table = TAG.TABLE.OPEN;
+
+        for (let i = 1; i <= SIZE.HEIGHT; i++) {
+            table += TAG.TR.OPEN;
+
+            for (let j = 1; j <= SIZE.WIDTH; j++) {
+                table += i === 1
+                    ? `${TAG.TH.OPEN}${i * j}${TAG.TH.CLOSE}`
+                    : `${TAG.TD.OPEN}${i * j}${TAG.TD.CLOSE}`; 
+            }
+
+            table += TAG.TR.CLOSE;
+        }
+
+        table += TAG.TABLE.CLOSE;
+
+        document.body.innerHTML = table;
+    </script>
+</body>
+</html>
