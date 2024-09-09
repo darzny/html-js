@@ -81,47 +81,51 @@
 </style>
 <body>
     <script>
-        const SIZE = {
-            WIDTH: 10,
-            HEIGHT: 10
-        }
-
-        const TAG = {
-            TABLE: {
-                OPEN: '<table>',
-                CLOSE: '</table>'
-            },
-            TR: {
-                OPEN: '<tr>',
-                CLOSE: '</tr>'
-            },
-            TH: {
-                OPEN: '<th>',
-                CLOSE: '</th>'
-            },
-            TD: {
-                OPEN: '<td>',
-                CLOSE: '</td>'
-            }
-        }
-
-        let table = TAG.TABLE.OPEN;
-
-        for (let i = 1; i <= SIZE.HEIGHT; i++) {
-            table += TAG.TR.OPEN;
-
-            for (let j = 1; j <= SIZE.WIDTH; j++) {
-                table += i === 1
-                    ? `${TAG.TH.OPEN}${i * j}${TAG.TH.CLOSE}`
-                    : `${TAG.TD.OPEN}${i * j}${TAG.TD.CLOSE}`; 
+        (function() {
+            "use strict"
+            
+            const SIZE = {
+                WIDTH: 10,
+                HEIGHT: 10
             }
 
-            table += TAG.TR.CLOSE;
-        }
+            const TAG = {
+                TABLE: {
+                    OPEN: '<table>',
+                    CLOSE: '</table>'
+                },
+                TR: {
+                    OPEN: '<tr>',
+                    CLOSE: '</tr>'
+                },
+                TH: {
+                    OPEN: '<th>',
+                    CLOSE: '</th>'
+                },
+                TD: {
+                    OPEN: '<td>',
+                    CLOSE: '</td>'
+                }
+            }
 
-        table += TAG.TABLE.CLOSE;
+            let table = TAG.TABLE.OPEN;
 
-        document.body.innerHTML = table;
+            for (let i = 1; i <= SIZE.HEIGHT; i++) {
+                table += TAG.TR.OPEN;
+
+                for (let j = 1; j <= SIZE.WIDTH; j++) {
+                    table += i === 1
+                        ? `${TAG.TH.OPEN}${i * j}${TAG.TH.CLOSE}`
+                        : `${TAG.TD.OPEN}${i * j}${TAG.TD.CLOSE}`; 
+                }
+
+                table += TAG.TR.CLOSE;
+            }
+
+            table += TAG.TABLE.CLOSE;
+
+            document.body.innerHTML = table;
+        })()
     </script>
 </body>
 </html>

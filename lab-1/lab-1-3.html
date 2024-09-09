@@ -7,33 +7,37 @@
 </head>
 <body>
     <script>
-        function getDayText (count) {
-            const res = count % 100;
+        (function() {
+            "use strict"
+            
+            function getDayText (count) {
+                const res = count % 100;
 
-            if (res >= 11 && res <= 14) {
+                if (res >= 11 && res <= 14) {
+                    return 'дней';
+                }
+
+                const resMod10 = count % 10;
+
+                if (resMod10 === 1) {
+                    return 'день';
+                }
+
+                if (resMod10 > 1 && resMod10 < 5) {
+                    return 'дня';
+                }
+
                 return 'дней';
             }
 
-            const resMod10 = count % 10;
-
-            if (resMod10 === 1) {
-                return 'день';
+            function getResultText (count) {
+                return `До конца вашей учебы остается ${count} ${getDayText(count)}.`;
             }
 
-            if (resMod10 > 1 && resMod10 < 5) {
-                return 'дня';
-            }
+            const alertText = [14, 3, 1].reduce((acc, val) => acc + getResultText(val) + '\n', '');
 
-            return 'дней';
-        }
-
-        function getResultText (count) {
-            return `До конца вашей учебы остается ${count} ${getDayText(count)}.`;
-        }
-
-        const alertText = [14, 3, 1].reduce((acc, val) => acc + getResultText(val) + '\n', '');
-
-        alert(alertText);
+            alert(alertText);
+        })()
     </script>
 </body>
 </html>

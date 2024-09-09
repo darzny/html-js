@@ -7,19 +7,23 @@
 </head>
 <body>
     <script>
-        const stringOne = 'Test2';
-        const stringTwo = 'Test2';
+        (function() {
+            "use strict"
 
-        const sumOne = stringOne + stringTwo;
+            const stringOne = 'Test2';
+            const stringTwo = 'Test2';
 
-        window.alert(sumOne);
+            const sumOne = stringOne + stringTwo;
 
-        const pi = 3.14;
-        const stringFF = 'FF';
+            window.alert(sumOne);
 
-        const sumTwo = pi + stringFF;
+            const pi = 3.14;
+            const stringFF = 'FF';
 
-        window.alert(sumTwo);
+            const sumTwo = pi + stringFF;
+
+            window.alert(sumTwo);
+        })()
     </script>
 </body>
 </html>

@@ -7,21 +7,23 @@
 </head>
 <body>
     <script>
-        class NewClass {
+        (function() {
+            "use strict"
+            class NewClass {
 
-            constructor(title, url) {
-                this.title = title;
-                this.url = url;
+                constructor(title, url) {
+                    this.title = title;
+                    this.url = url;
+                }
+
+                show() {
+                    document.write(`<b>Title:</b> ${this.title}<br/> <b>URL:</b> ${this.url}`);
+                }
             }
 
-            show() {
-                document.write(`<b>Title:</b> ${this.title}<br/> <b>URL:</b> ${this.url}`);
-            }
-        }
-
-        const classItem = new NewClass('BLA', 'test.com');
-        classItem.show();
+            const classItem = new NewClass('BLA', 'test.com');
+            classItem.show();
+        })()
     </script>
-    
 </body>
 </html>
