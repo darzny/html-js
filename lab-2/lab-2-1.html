@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2-1</title>
+
+    <style>
+        .picture {
+            display: inline-block;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .big {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/pic.jpg" alt="картинка" class="picture" id="pic"/>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const pic = document.getElementById('pic');
+
+            pic.addEventListener('click', () => {
+                pic.classList.toggle('big');
+            });
+        })();
+    </script>
+</body>
+</html>
