@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4-1</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="400"></canvas>
+
+    <script>
+        (function() {
+            'use strict'
+
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext("2d");
+            
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+
+            gradient.addColorStop(0, '#d1006b');
+            gradient.addColorStop(0.2, '#d1006b');
+            gradient.addColorStop(0.5, '#0ca17b');
+            gradient.addColorStop(0.8, '#fee803');
+            gradient.addColorStop(1, '#fee803');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        })();
+    </script>
+</body>
+</html>
