@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 4-1</title>
-  </head>
-  <body>
-    <canvas id="canvas" width="500" height="400"></canvas>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<title>Lab 4-1</title>
+	</head>
+	<body>
+		<div id="canvas-test">
+			<canvas id="canvas" width="500" height="400"></canvas>
+		</div>
 
-    <script>
-      (function () {
-        "use strict";
+		<script>
+			(function () {
+				"use strict";
 
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
+				if (Modernizr.canvas) {
+					const canvas = document.getElementById("canvas");
+					const ctx = canvas.getContext("2d");
 
-        const gradient = ctx.createLinearGradient?.(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
+					const gradient = ctx.createLinearGradient?.(
+						0,
+						0,
+						canvas.width,
+						canvas.height
+					);
 
-        if (gradient) {
-          gradient.addColorStop(0, "#d1006b");
-          gradient.addColorStop(0.2, "#d1006b");
-          gradient.addColorStop(0.5, "#0ca17b");
-          gradient.addColorStop(0.8, "#fee803");
-          gradient.addColorStop(1, "#fee803");
-          ctx.fillStyle = gradient;
-        } else {
-          ctx.fillStyle("#d1006b");
-        }
+					if (gradient) {
+						gradient.addColorStop(0, "#d1006b");
+						gradient.addColorStop(0.2, "#d1006b");
+						gradient.addColorStop(0.5, "#0ca17b");
+						gradient.addColorStop(0.8, "#fee803");
+						gradient.addColorStop(1, "#fee803");
+						ctx.fillStyle = gradient;
+					} else {
+						ctx.fillStyle("#d1006b");
+					}
 
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      })();
-    </script>
-  </body>
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+				} else {
+					document.getElementById("canvas-test").innerHTML =
+						"Ваш браузер не поддерживает canvas.";
+				}
+			})();
+		</script>
+	</body>
 </html>

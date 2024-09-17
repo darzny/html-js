@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 4-2</title>
-  </head>
-  <body>
-    <embed
-      src="assets/example.svg"
-      type="image/svg+xml"
-      width="400"
-      height="400"
-    />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<title>Lab 4-2</title>
+	</head>
+	<body>
+		<div id="embed-test">
+			<embed src="assets/example.svg" type="image/svg+xml" />
+		</div>
 
-    <object
-      data="assets/example.svg"
-      type="image/svg+xml"
-      width="400"
-      height="400"
-    >
-      <img src="assets/pic.jpg" alt="SVG не поддерживается" />
-    </object>
+		<div id="object-test">
+			<object
+				data="ssets/example.svg"
+				type="image/svg+xml"
+				width="400"
+				height="400"
+			>
+				<img src="assets/pic.jpg" alt="SVG не поддерживается" />
+			</object>
+		</div>
 
-    <svg width="400" height="400">
-      <rect
-        width="400"
-        height="200"
-        style="fill: rgb(0, 0, 255); stroke-width: 10; stroke: rgb(0, 0, 0)"
-      />
-    </svg>
-  </body>
+		<div id="svg-test">
+			<rect
+				width="400"
+				height="200"
+				style="fill: rgb(0, 0, 255); stroke-width: 10; stroke: rgb(0, 0, 0)"
+			/>
+		</div>
+
+		<script>
+			(function () {
+				"use strict";
+
+				if (Modernizr.svg) {
+					console.log("SVG поддерживается");
+				} else {
+					console.log("SVG не поддерживается");
+				}
+
+				if (Modernizr.embed) {
+					console.log("<embed> поддерживается");
+				} else {
+					console.log("<embed> не поддерживается");
+
+					document.getElementById("embed-test").innerHTML =
+						"Ваш браузер не поддерживает тег <embed> для SVG.";
+				}
+
+				if (Modernizr.object) {
+					console.log("<object> поддерживается");
+				} else {
+					console.log("<object> не поддерживается");
+
+					document.getElementById("object-test").innerHTML =
+						"Ваш браузер не поддерживает тег <object> для SVG.";
+				}
+
+				if (Modernizr.svg) {
+					console.log("<svg> поддерживается");
+				} else {
+					console.log("<svg> не поддерживается");
+
+					document.getElementById("svg-test").innerHTML =
+						"Ваш браузер не поддерживает встроенный SVG.";
+				}
+			})();
+		</script>
+	</body>
 </html>
