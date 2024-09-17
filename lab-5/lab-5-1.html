@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lab 5-1</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	</head>
+	<style>
+		.error-icon {
+			color: red;
+			font-weight: bold;
+		}
+
+		.valid-icon {
+			color: green;
+			font-weight: bold;
+		}
+	</style>
+	<body>
+		<h3>Пожалуйста, заполните обязательные поля.</h3>
+
+		<form id="myForm">
+			<label for="name">Имя:</label>
+			<input type="text" id="name" name="name" required minlength="3" />
+			<span id="nameIcon" class="error-icon">✘</span>
+			<br /><br />
+
+			<label for="age">Возраст:</label>
+			<input type="number" id="age" name="age" min="1" max="120" required />
+			<span id="ageIcon" class="valid-icon">✔</span>
+			<br /><br />
+
+			<label for="email">E-mail:</label>
+			<input type="email" id="email" name="email" required />
+			<span id="emailIcon" class="error-icon">✘</span>
+			<br /><br />
+
+			<label for="website">Сайт:</label>
+			<input type="url" id="website" name="website" />
+			<span id="websiteIcon" class="valid-icon">✔</span>
+			<br /><br />
+
+			<input type="submit" value="Отправить" />
+		</form>
+
+		<script>
+			(function () {
+				"use strict";
+
+				function updateIcon(isValid, icon) {
+					if (isValid) {
+						icon.textContent = "✔";
+						icon.classList.remove("error-icon");
+						icon.classList.add("valid-icon");
+					} else {
+						icon.textContent = "✘";
+						icon.classList.remove("valid-icon");
+						icon.classList.add("error-icon");
+					}
+				}
+
+				function customValidate(field) {
+					let isValid = true;
+
+					if (field.id === "name") {
+						const minLength = 3;
+						if (field.value.length < minLength) {
+							isValid = false;
+						}
+					}
+
+					if (field.id === "age") {
+						const min = 1;
+						const max = 120;
+						const value = parseInt(field.value, 10);
+
+						if (isNaN(value) || value < min || value > max) {
+							isValid = false;
+						}
+					}
+
+					if (field.id === "email") {
+						const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+						if (!emailPattern.test(field.value)) {
+							isValid = false;
+						}
+					}
+
+					if (field.id === "website" && field.value !== "") {
+						const urlPattern = /^(https?:\/\/)?[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
+
+						if (!urlPattern.test(field.value)) {
+							isValid = false;
+						}
+					}
+
+					return isValid;
+				}
+
+				function needsCustomValidation() {
+					return (
+						!Modernizr.input.required ||
+						!Modernizr.input.min ||
+						!Modernizr.input.max ||
+						!Modernizr.inputtypes.email ||
+						!Modernizr.inputtypes.url
+					);
+				}
+
+				const form = document.getElementById("myForm");
+
+				form.addEventListener("input", function (event) {
+					const field = event.target;
+
+					const fieldIdToIconMap = {
+						name: "nameIcon",
+						age: "ageIcon",
+						email: "emailIcon",
+						website: "websiteIcon",
+					};
+
+					const iconId = fieldIdToIconMap[field.id];
+
+					if (iconId) {
+						const icon = document.getElementById(iconId);
+						const isValid = needsCustomValidation()
+							? customValidate(field)
+							: field.validity.valid;
+						updateIcon(isValid, icon);
+					}
+				});
+			})();
+		</script>
+	</body>
+</html>

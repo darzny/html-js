@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lab 5-2</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	</head>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		h3 {
+			margin-bottom: 10px;
+		}
+
+		form {
+			margin-bottom: 20px;
+		}
+
+		input {
+			margin-right: 10px;
+			padding: 5px;
+		}
+
+		button {
+			padding: 5px 10px;
+		}
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		li {
+			padding: 5px 0;
+			display: flex;
+			gap: 20px;
+
+			border-bottom: 1px solid #ccc;
+		}
+
+		.delete-btn {
+			color: red;
+			cursor: pointer;
+			margin-left: auto;
+		}
+
+		.actions {
+			flex-grow: 1;
+			display: flex;
+			align-items: flex-end;
+		}
+	</style>
+
+	<body>
+		<h1>Телефонная записная книжка</h1>
+
+		<form id="phoneBookForm" data-use-local-storage="true">
+			<input type="text" id="name" placeholder="Имя" required />
+			<input type="tel" id="phone" placeholder="Телефон" required />
+			<button type="submit">Добавить</button>
+		</form>
+
+		<h2>Сохраненные контакты:</h2>
+		<ul id="phoneBookList"></ul>
+
+		<script src="./scripts/phone.js"></script>
+	</body>
+</html>
