@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 2-2</title>
-</head>
-<style>
-    a {
-        text-decoration: none;
-        transition: all 0.5s ease-in-out;
-    }
-</style>
-<body>
-    <a href="test.com" id="change">Change style</a>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lab 2-2</title>
+	</head>
+	<style>
+		a {
+			text-decoration: none;
+			transition: all 0.5s ease-in-out;
+		}
+	</style>
+	<body>
+		<a href="test.com" id="change">Change style</a>
 
-    <script>
-        (function() {
-            'use strict';
+		<script>
+			(function () {
+				"use strict";
 
-            const ACTIVE_STYLES = {
-                color: 'red',
-                fontSize: '24px',
-                textDecoration: 'underline',
-                fontWeight: 'bold'
-            };
+				const ACTIVE_STYLES = {
+					color: "red",
+					fontSize: "24px",
+					textDecoration: "underline",
+					fontWeight: "bold",
+				};
 
-            const link = document.getElementById('change');
+				const link = document.getElementById("change");
 
-            function applyStyle() {
-                Object.assign(link.style, ACTIVE_STYLES);
-            }
+				function applyStyle() {
+					Object.assign(link.style, ACTIVE_STYLES);
+				}
 
-            function resetStyle() {
-                link.style.cssText = '';
-            }
+				function resetStyle() {
+					link.style.cssText = "";
+				}
 
-            link.addEventListener('mouseover', applyStyle);
-            link.addEventListener('mouseout', resetStyle);
+				link?.addEventListener("mouseover", applyStyle);
+				link?.addEventListener("mouseout", resetStyle);
 
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
+				link?.addEventListener("click", (event) => {
+					event.preventDefault();
 
-                applyStyle();
-            })
-        })();
-    </script>
-</body>
+					applyStyle();
+				});
+			})();
+		</script>
+	</body>
 </html>

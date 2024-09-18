@@ -17,6 +17,11 @@
 
 				if (Modernizr.canvas) {
 					const canvas = document.getElementById("canvas");
+
+					if (!canvas) {
+						return;
+					}
+
 					const ctx = canvas.getContext("2d");
 
 					const gradient = ctx.createLinearGradient?.(

@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 2-3</title>
-</head>
-<body>
-    <a href="#" id="newWindowLink">Новое окно</a>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lab 2-3</title>
+	</head>
+	<body>
+		<a href="#" id="newWindowLink">Новое окно</a>
 
-    <script>
-        (function() {
-            'use strict';
+		<script>
+			(function () {
+				"use strict";
 
-            const newWindowLink = document.getElementById('newWindowLink');
-            
-            function openNewWindow() {
-                const windowOptions = "width=300,height=400,menubar=yes,toolbar=yes,location=yes,status=yes,scrollbars=yes,resizable=yes";
+				const newWindowLink = document.getElementById("newWindowLink");
 
-                const newWindow = window.open('', 'newWindow', 'width=300, height=400');
-                
-                newWindow.document.write('<html><head><meta charset="UTF-8"></head><body>Привет, новое окно!</body></html>');
-                
-                newWindow.addEventListener('load', function() {
-                    newWindow.document.title = 'Новое окно';
-                });
-            }
+				function openNewWindow() {
+					const windowOptions =
+						"width=300,height=400,menubar=yes,toolbar=yes,location=yes,status=yes,scrollbars=yes,resizable=yes";
 
-            newWindowLink.addEventListener('click', function(event) {
-                event.preventDefault();
+					const newWindow = window.open(
+						"",
+						"newWindow",
+						"width=300, height=400"
+					);
 
-                openNewWindow()
-            })
-        })();
-      </script>
-  </body>
+					newWindow.document.write(
+						'<html><head><meta charset="UTF-8"></head><body>Привет, новое окно!</body></html>'
+					);
+
+					newWindow.addEventListener("load", function () {
+						newWindow.document.title = "Новое окно";
+					});
+				}
+
+				newWindowLink?.addEventListener("click", function (event) {
+					event.preventDefault();
+
+					openNewWindow();
+				});
+			})();
+		</script>
+	</body>
 </html>
