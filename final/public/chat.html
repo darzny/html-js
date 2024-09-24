@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат с томатом</title>
+    <link rel="icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+
+<body class="page">
+    <header class="header">
+        <div class="container header-content">
+            <a class="logo" href="/">
+                <h1>О томате.</h1>
+            </a>
+            <button class="menu-toggle" aria-label="Открыть меню">
+                &#9776;
+            </button>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/skills" class="nav-link">Навыки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects" class="nav-link">Проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link active"
+                            >Контакты</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="/chat" class="nav-link">Чат</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <main class="container main-info">
+        <section class="chat">
+            <h2 class="title">Чат</h2>
+            
+            <div id="chat-window" class="chat-window"></div>
+
+            <form class="message-form">
+                <input type="text" id="message-input" placeholder="Введите сообщение">
+                <button id="send-button" class="btn">Отправить</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Тестовый Тест. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

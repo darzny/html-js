@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Контакты томата</title>
+		<link rel="icon" href="assets/favicon.png" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+	</head>
+	<body class="page">
+		<header class="header">
+			<div class="container header-content">
+				<a class="logo" href="/">
+					<h1>О томате.</h1>
+				</a>
+				<button class="menu-toggle" aria-label="Открыть меню">&#9776;</button>
+				<nav class="nav">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="/" class="nav-link">Главная</a>
+						</li>
+						<li class="nav-item">
+							<a href="/skills" class="nav-link">Навыки</a>
+						</li>
+						<li class="nav-item">
+							<a href="/projects" class="nav-link">Проекты</a>
+						</li>
+						<li class="nav-item">
+							<a href="/contact" class="nav-link active">Контакты</a>
+						</li>
+						<li class="nav-item">
+							<a href="/chat" class="nav-link">Чат</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container main-info">
+			<section class="projects">
+				<h2 class="title">Связаться со мной</h2>
+
+				<form action="#" method="post">
+					<label for="name">Имя:</label>
+					<input type="text" id="name" name="name" required />
+
+					<label for="email">Электронная почта:</label>
+					<input type="email" id="email" name="email" required />
+
+					<label for="phone">Телефон:</label>
+					<input type="tel" id="phone" name="phone" />
+
+					<label for="date">Удобная дата связи:</label>
+					<input type="date" id="date" name="date" />
+
+					<label for="message">Сообщение:</label>
+					<textarea id="message" name="message" required rows="5"></textarea>
+
+					<button type="submit" class="btn">Отправить</button>
+				</form>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2024 Тестовый Тест. Все права защищены.</p>
+			</div>
+		</footer>
+
+		<script src="js/index.js"></script>
+		<script src="js/contact.js"></script>
+	</body>
+</html>

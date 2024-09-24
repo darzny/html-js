@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>О томате</title>
+		<link rel="icon" href="assets/favicon.png" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	</head>
+	<body class="page">
+		<header class="header">
+			<div class="container header-content">
+				<div class="logo">
+					<h1>О томате.</h1>
+				</div>
+				<button class="menu-toggle" aria-label="Открыть меню">&#9776;</button>
+				<nav class="nav">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="/" class="nav-link active">Главная</a>
+						</li>
+						<li class="nav-item">
+							<a href="/skills" class="nav-link">Навыки</a>
+						</li>
+						<li class="nav-item">
+							<a href="/projects" class="nav-link">Проекты</a>
+						</li>
+						<li class="nav-item">
+							<a href="/contact" class="nav-link">Контакты</a>
+						</li>
+						<li class="nav-item">
+							<a href="/chat" class="nav-link">Чат</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container main-info">
+			<section class="intro">
+				<div class="intro-content">
+					<h2 class="intro-greeting">Привет, это я</h2>
+					<h1 class="intro-name">Тестовый Тест</h1>
+					<h3 class="intro-title typewriter-wrapper">
+						<span id="animated-text" class="animated-text">И я томат</span>
+					</h3>
+					<p class="intro-description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+						ipsum perferendis accusamus dolor praesentium quidem, at, beatae
+						itaque consequuntur ipsa cum saepe voluptas! Eum, aliquam vel?
+						<br /><br />Assumenda deserunt et minus voluptates a veniam, ratione
+						laborum quod molestiae, neque, eaque ullam aperiam debitis
+						consequuntur error ipsam ab earum dolore molestias dignissimos
+						dolorem? <br /><br />Dolorem sunt esse labore, molestias ad ratione?
+						Dicta repellat possimus ea voluptates porro, laudantium laboriosam
+						error voluptatibus placeat, unde esse? Nam nemo iusto, deleniti ea
+						odit temporibus nostrum. Suscipit soluta magnam alias libero
+						inventore aperiam quisquam. Cupiditate, doloribus perspiciatis. Sunt
+						impedit veritatis eius facilis praesentium doloremque fugit pariatur
+						esse.
+					</p>
+
+					<div class="intro-actions">
+						<a href="/chat" class="btn">Поговорить со мной</a>
+						<button class="btn" id="magic">Сделать красиво</button>
+					</div>
+				</div>
+				<div class="intro-image">
+					<div class="img-container">
+						<img src="assets/tomat.jpg" alt="Тестовый тест" />
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2024 Тестовый Тест. Все права защищены.</p>
+			</div>
+		</footer>
+
+		<canvas class="canvas-animation hidden" id="symbolCanvas"></canvas>
+
+		<script src="js/index.js"></script>
+		<script src="js/fallingSymbols.js"></script>
+	</body>
+</html>
